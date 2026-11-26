@@ -23,14 +23,7 @@ body {
     z-index: 5;
     pointer-events: none; /* Allows clicks to go through the canvas */
 }
-/* For hiding the scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
+
 
 /* Custom styles for our Anime Theme */
 body {
@@ -57,12 +50,5 @@ body {
     z-index: 5;
     pointer-events: none; /* Allows clicks to go through the canvas */
 }
-/* For hiding the scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
+
 

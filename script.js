@@ -40,23 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         speed: 500,
         download: false
     });
-
-    // --- Hall of Fame Scroller ---
-    const scroller = document.getElementById('hall-of-fame-scroller');
-    const scrollLeftBtn = document.getElementById('scroll-left-btn');
-    const scrollRightBtn = document.getElementById('scroll-right-btn');
-    if (scroller && scrollLeftBtn && scrollRightBtn) {
-        const card = scroller.querySelector('.snap-center');
-        const cardWidth = card.offsetWidth + parseInt(getComputedStyle(card.parentElement).gap);
-
-        scrollRightBtn.addEventListener('click', () => {
-            scroller.scrollBy({ left: cardWidth, behavior: 'smooth' });
-        });
-        scrollLeftBtn.addEventListener('click', () => {
-            scroller.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-        });
-    }
-
     // --- Video Uploader ---
     const videoUploadInput = document.getElementById('video-upload');
     const videoPlayer = document.getElementById('video-player');
