@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>С Днём Рождения!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#6c3cf0;--bg2:#ff2e88;--ink:#2b1450;--card:#fffdf7;--soft:#f3ecff;color-scheme:light;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a1170;--bg2:#8a1f5a;--ink:#f6eeff;--card:#2a1850;--soft:#38206b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg1:#2a1170;--bg2:#8a1f5a;--ink:#f6eeff;--card:#2a1850;--soft:#38206b;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;color:#fff;
+ background:linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed;overflow-x:hidden}
+.bunting{position:absolute;top:0;left:0;width:100%;height:56px;z-index:1}
+main{position:relative;z-index:2;max-width:880px;margin:0 auto;padding:84px 20px 60px;text-align:center}
+#balloons{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bl{position:absolute;bottom:-140px;opacity:.85;animation:up var(--d) linear var(--dl) infinite;scale:var(--s)}
+@keyframes up{from{translate:0 0}to{translate:40px -135vh}}
+#cf{position:fixed;inset:0;pointer-events:none;z-index:50}
+
+h1{font-family:'Unbounded','Arial Black',Impact,sans-serif;font-weight:900;font-size:clamp(2.1rem,9vw,5rem);line-height:1.25;margin:0 0 8px}
+h1 .w{display:block}
+h1 .t{display:inline-block;padding:.02em .14em;margin:.04em;border-radius:.28em;box-shadow:0 6px 0 rgba(0,0,0,.18);animation:hop 2.4s ease-in-out infinite}
+@keyframes hop{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-10px) rotate(calc(var(--r)*-1))}}
+.sp{display:inline-block;width:.35em}
+.namebox{margin:22px 0 4px}
+.namebox input{font:inherit;font-weight:800;font-size:1.1rem;text-align:center;padding:12px 20px;border-radius:999px;border:3px dashed #ffd23f;background:rgba(255,255,255,.15);color:#fff;width:min(340px,90%)}
+.namebox input::placeholder{color:rgba(255,255,255,.75)}
+.namebox input:focus-visible,button:focus-visible,.candle:focus-visible{outline:4px solid #ffd23f;outline-offset:4px}
+#who{font-family:'Unbounded',sans-serif;font-size:clamp(1.4rem,5vw,2.4rem);margin:12px 0 0;color:#ffd23f;min-height:1.3em;word-break:break-word}
+
+.stage{margin:34px auto 0;max-width:380px}
+.stage svg{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 14px 18px rgba(0,0,0,.25))}
+.candle{cursor:pointer}
+.flame{transform-box:fill-box;transform-origin:50% 100%;transition:opacity .35s,transform .35s;animation:fl .5s ease-in-out infinite alternate}
+@keyframes fl{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.92,1.1) rotate(3deg)}}
+.candle.off .flame{opacity:0;transform:scale(.2);animation:none}
+.hint{font-weight:800;font-size:1.1rem;margin:14px 0 10px;min-height:1.6em}
+button{font:inherit;font-weight:800;cursor:pointer;border:0;border-radius:999px;padding:12px 26px;background:#ffd23f;color:#2b1450;box-shadow:0 5px 0 rgba(0,0,0,.2);transition:transform .15s}
+button:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+
+.card{background:var(--card);color:var(--ink);border-radius:32px;padding:clamp(24px,5vw,48px);margin:56px 0 0;box-shadow:0 18px 0 -6px #ffd23f,0 30px 50px rgba(0,0,0,.3);position:relative;text-align:left}
+.card h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.3rem,4.5vw,2rem);margin:0 0 16px;color:#ff2e88;text-align:center}
+.card p{font-size:clamp(1.05rem,2.6vw,1.25rem);line-height:1.7;margin:0 0 14px;max-width:62ch;margin-inline:auto}
+.card .sig{text-align:right;font-weight:800;color:#6c3cf0;margin-top:20px}
+.card::before,.card::after{content:"🎈";position:absolute;font-size:2.6rem;top:-26px}
+.card::before{left:18px;transform:rotate(-14deg)}.card::after{right:18px;transform:rotate(14deg)}
+
+h3.sec{font-family:'Unbounded',sans-serif;font-size:clamp(1.3rem,4.5vw,2rem);margin:64px 0 22px}
+.wishes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.wish{border-radius:26px;padding:22px 18px;color:#2b1450;box-shadow:0 6px 0 rgba(0,0,0,.2)}
+.wish:nth-child(even){border-radius:26px 26px 26px 6px}
+.wish b{display:block;font-family:'Unbounded',sans-serif;font-size:1.05rem;margin:6px 0 4px}
+.wish span.e{font-size:2.6rem;display:block}
+.wish p{margin:0;font-weight:700}
+
+.gift{margin-top:12px}
+.gift svg{width:min(200px,60%);height:auto;overflow:visible;cursor:pointer}
+.lid{transition:transform .5s cubic-bezier(.3,1.6,.5,1);transform-box:fill-box;transform-origin:20% 100%}
+.gift.open .lid{transform:translate(8px,-46px) rotate(-14deg)}
+#gm{max-width:520px;margin:14px auto 0;font-size:1.2rem;font-weight:800;min-height:3.2em}
+footer{margin-top:50px;font-weight:700;opacity:.9}
+
+@media (prefers-reduced-motion:reduce){.bl,h1 .t,.flame{animation:none}.lid{transition:none}}
+</style>
+</head>
+<body>
+<svg class="bunting" id="bunt" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true"></svg>
+<div id="balloons" aria-hidden="true"></div>
+<canvas id="cf" aria-hidden="true"></canvas>
+
+<main>
+  <h1 id="title" aria-label="С Днём Рождения!"></h1>
+
+  <div class="namebox"><input id="name" type="text" maxlength="30" placeholder="Впиши имя именинника" aria-label="Имя именинника"></div>
+  <p id="who"></p>
+
+  <div class="stage">
+    <svg viewBox="0 0 300 260" role="img" aria-label="Праздничный торт со свечами">
+      <ellipse cx="150" cy="236" rx="140" ry="16" fill="#fff" opacity=".9"/>
+      <rect x="30" y="160" width="240" height="70" rx="16" fill="#ff2e88"/>
+      <rect x="55" y="110" width="190" height="58" rx="16" fill="#ffd23f"/>
+      <rect x="80" y="66" width="140" height="50" rx="16" fill="#1fd1c2"/>
+      <rect x="76" y="60" width="148" height="16" rx="8" fill="#fff"/>
+      <g fill="#fff"><circle cx="96" cy="78" r="7"/><circle cx="128" cy="82" r="8"/><circle cx="160" cy="78" r="7"/><circle cx="190" cy="83" r="8"/><circle cx="210" cy="77" r="6"/></g>
+      <path d="M30 180q15 14 30 0t30 0 30 0 30 0 30 0 30 0 30 0 30 0v-8H30z" fill="#fff" opacity=".9"/>
+      <g fill="#ff2e88"><circle cx="75" cy="140" r="4"/><circle cx="120" cy="150" r="4"/><circle cx="170" cy="138" r="4"/><circle cx="215" cy="148" r="4"/></g>
+      <g fill="#fff"><circle cx="70" cy="205" r="4"/><circle cx="115" cy="212" r="4"/><circle cx="165" cy="204" r="4"/><circle cx="210" cy="213" r="4"/><circle cx="245" cy="203" r="4"/></g>
+      <g id="candles"></g>
+    </svg>
+  </div>
+  <p class="hint" id="hint" aria-live="polite"></p>
+  <button id="relight" type="button">Зажечь свечи заново</button>
+
+  <section class="card" aria-labelledby="gt">
+    <h2 id="gt">Поздравляю тебя!</h2>
+    <p>Сегодня твой день, и пусть он будет самым ярким в году: с громким смехом, тёплыми объятиями и подарками, от которых захватывает дух.</p>
+    <p>Желаю здоровья, лёгкости на душе, добрых людей рядом и мечт, которые сбываются быстрее, чем гаснут свечи на торте. Пусть каждый новый год приносит радости больше, чем предыдущий, а грусть обходит стороной.</p>
+    <p>Будь счастлив(а), смелее иди к своим целям и никогда не забывай, какой ты замечательный человек. С Днём Рождения!</p>
+    <p class="sig">С любовью и самыми добрыми пожеланиями 💛</p>
+  </section>
+
+  <h3 class="sec">Мои пожелания тебе</h3>
+  <div class="wishes">
+    <div class="wish" style="background:#ffd23f"><span class="e">💪</span><b>Здоровья</b><p>Чтобы сил хватало на все мечты.</p></div>
+    <div class="wish" style="background:#1fd1c2"><span class="e">😄</span><b>Счастья</b><p>Каждый день — повод для улыбки.</p></div>
+    <div class="wish" style="background:#ff9ec7"><span class="e">💖</span><b>Любви</b><p>Тепла от близких и от жизни.</p></div>
+    <div class="wish" style="background:#b8a2ff"><span class="e">🍀</span><b>Удачи</b><p>Пусть везёт там, где важно.</p></div>
+    <div class="wish" style="background:#ffb066"><span class="e">💰</span><b>Достатка</b><p>Чтобы желания не упирались в цену.</p></div>
+    <div class="wish" style="background:#8ff0a4"><span class="e">🚀</span><b>Приключений</b><p>Новых мест, людей и впечатлений.</p></div>
+  </div>
+
+  <h3 class="sec">Подарок для тебя</h3>
+  <div class="gift" id="gift">
+    <svg viewBox="0 0 160 170" role="button" tabindex="0" aria-label="Открыть подарок" id="giftsvg">
+      <rect x="22" y="78" width="116" height="84" rx="8" fill="#ff2e88"/>
+      <rect x="72" y="78" width="16" height="84" fill="#ffd23f"/>
+      <g class="lid">
+        <rect x="12" y="52" width="136" height="30" rx="8" fill="#ff7a1a"/>
+        <rect x="72" y="52" width="16" height="30" fill="#ffd23f"/>
+        <ellipse cx="60" cy="42" rx="20" ry="13" fill="#ffd23f" transform="rotate(-20 60 42)"/>
+        <ellipse cx="100" cy="42" rx="20" ry="13" fill="#ffd23f" transform="rotate(20 100 42)"/>
+        <circle cx="80" cy="48" r="8" fill="#ffb800"/>
+      </g>
+    </svg>
+    <p id="gm" aria-live="polite">Нажми на коробку</p>
+  </div>
+
+  <footer>Пусть этот день запомнится надолго 🎂🎉</footer>
+</main>
+
+<script>
+const COL=['#ff2e88','#ffd23f','#1fd1c2','#ff7a1a','#b28bff'];
+const $=id=>document.getElementById(id);
+
+/* заголовок из цветных плиток */
+const tiles=[['#ff2e88','#fff'],['#ffd23f','#2b1450'],['#1fd1c2','#2b1450'],['#ff7a1a','#fff'],['#fff','#6c3cf0']];
+let k=0;
+['С Днём','Рождения!'].forEach(word=>{
+  const w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');
+  [...word].forEach(ch=>{
+    if(ch===' '){const s=document.createElement('span');s.className='sp';w.appendChild(s);return}
+    const t=document.createElement('span');t.className='t';t.textContent=ch;
+    const c=tiles[k%tiles.length];t.style.background=c[0];t.style.color=c[1];
+    t.style.setProperty('--r',((k%3)-1)*4+'deg');t.style.animationDelay=(k*0.12)+'s';k++;w.appendChild(t);
+  });
+  $('title').appendChild(w);
+});
+
+/* флажки */
+(()=>{let s='<path d="M0 6Q600 26 1200 6" stroke="#fff" stroke-width="2" fill="none"/>';
+ for(let i=0;i<20;i++){const x=i*60,y=6+Math.sin(i/19*Math.PI)*10;
+  s+=`<polygon points="${x+4},${y} ${x+56},${y} ${x+30},${y+36}" fill="${COL[i%5]}"/>`}
+ $('bunt').innerHTML=s})();
+
+/* шарики */
+for(let i=0;i<12;i++){const c=COL[i%5],d=document.createElement('div');d.className='bl';
+ d.style.cssText=`left:${3+i*8}%;--d:${16+Math.random()*12}s;--dl:${-Math.random()*26}s;--s:${.6+Math.random()*.7}`;
+ d.innerHTML=`<svg viewBox="0 0 60 100" width="60" height="100"><ellipse cx="30" cy="32" rx="24" ry="30" fill="${c}"/><ellipse cx="21" cy="20" rx="6" ry="9" fill="#fff" opacity=".35"/><path d="M26 61l4 6 4-6z" fill="${c}"/><path d="M30 67c-6 10 6 18 0 30" stroke="#fff" stroke-opacity=".7" fill="none" stroke-width="1.5"/></svg>`;
+ $('balloons').appendChild(d)}
+
+/* конфетти */
+const cv=$('cf'),cx=cv.getContext('2d');let P=[],run=false;
+function size(){cv.width=innerWidth;cv.height=innerHeight}addEventListener('resize',size);size();
+function burst(x,y,n=140){
+ for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=4+Math.random()*9;
+  P.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-6,w:6+Math.random()*7,h:4+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:[...COL,'#fff'][i%6],l:0})}
+ if(!run){run=true;requestAnimationFrame(tick)}}
+function tick(){cx.clearRect(0,0,cv.width,cv.height);P=P.filter(p=>p.y<cv.height+20&&p.l<260);
+ for(const p of P){p.l++;p.vy+=.25;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;
+  cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.w/2,-p.h/2,p.w,p.h);cx.restore()}
+ if(P.length)requestAnimationFrame(tick);else run=false}
+setTimeout(()=>{burst(innerWidth*.25,innerHeight*.5,90);burst(innerWidth*.75,innerHeight*.5,90)},400);
+
+/* свечи */
+const cg=$('candles'),NS='http://www.w3.org/2000/svg';
+[100,125,150,175,200].forEach((x,i)=>{
+ const g=document.createElementNS(NS,'g');g.setAttribute('class','candle');g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label','Свеча '+(i+1)+': задуть или зажечь');
+ g.innerHTML=`<rect x="${x-14}" y="4" width="28" height="62" fill="transparent"/><rect x="${x-4}" y="36" width="8" height="30" rx="2" fill="${COL[(i+1)%5]}"/><rect x="${x-4}" y="44" width="8" height="4" fill="#fff" opacity=".7"/><g class="flame" style="animation-delay:${i*.1}s"><ellipse cx="${x}" cy="26" rx="7" ry="11" fill="#ff7a1a"/><ellipse cx="${x}" cy="29" rx="3.5" ry="6.5" fill="#ffe36e"/></g>`;
+ cg.appendChild(g)});
+const cs=[...document.querySelectorAll('.candle')];
+const H1='Загадай желание и задуй свечи: нажимай на огоньки';
+$('hint').textContent=H1;
+function check(){const out=cs.every(c=>c.classList.contains('off'));
+ $('hint').textContent=out?'Желание загадано! Пусть сбудется ✨':H1;
+ if(out){const r=cg.getBoundingClientRect();burst(r.left+r.width/2,r.top,170)}}
+cs.forEach(c=>{const t=()=>{c.classList.toggle('off');check()};
+ c.addEventListener('click',t);
+ c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
+$('relight').onclick=()=>{cs.forEach(c=>c.classList.remove('off'));$('hint').textContent=H1};
+
+/* имя */
+$('name').addEventListener('input',e=>{const v=e.target.value.trim();$('who').textContent=v?('🎉 '+v+' 🎉'):''});
+
+/* подарок */
+const gs=$('giftsvg');
+function openGift(){const g=$('gift');if(g.classList.contains('open'))return;g.classList.add('open');
+ $('gm').textContent='Внутри — море радости, миллион улыбок и ещё немного конфетти! 🎁';
+ const r=gs.getBoundingClientRect();burst(r.left+r.width/2,r.top+40,150)}
+gs.addEventListener('click',openGift);
+gs.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift()}});
+</script>
+</body>
+</html>
